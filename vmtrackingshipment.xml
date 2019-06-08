@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" version="2.5" method="upgrade">
+    <name>VirtueMart Tracking Code Shipment</name>
+    <version>2.0.14</version>
+    <creationDate>Junho 2019</creationDate>
+    <author>Luiz Felipe Weber</author>
+    <authorEmail>weber@weber.eti.br</authorEmail>
+    <authorUrl>http://weber.eti.br</authorUrl>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <description>
+    &lt;div style=&quot;background:#E5F5FF;border:1px solid #99D6FF;padding:10px;margin:10px; -box-shadow: inset 0px 0px 10px #fff, 0px 0px 5px #ccc; -webkit-box-shadow: inset 0px 0px 10px #fff, 0px 0px 5px #ccc; -moz-box-shadow: inset 0px 0px 10px #fff, 0px 0px 5px #ccc;&quot;&gt;
+
+    &lt;h1&gt;VirtueMart Tracking Code Shipment&lt;/h1&gt;    
+    &lt;/div&gt;   
+
+    &lt;br/&gt;
+
+    Licença: &lt;a href='http://www.gnu.org/licenses/gpl-3.0.html'&gt;GNU/GPL v3&lt;/a&gt;
+    &lt;br/&gt;
+    Desenvolvido por Luiz Felipe Weber - &lt;a href='http://weber.eti.br'&gt;Weber TI&lt;/a&gt; &lt;/a&gt;
+    &lt;/div&gt;
+    </description>
+	<files>
+        <filename plugin="vmtrackingshipment">vmtrackingshipment.php</filename>
+        <folder>admin</folder>
+        <folder>assets</folder>
+        <folder>backend</folder>        
+        <folder>helpers</folder>
+        <folder>language</folder>
+        <folder>plugin</folder>		
+        <filename>licenca-gplv3.txt</filename>
+        <filename>gplv3-license.txt</filename>        
+        <filename>install.mysql.utf8.sql</filename>        
+        <filename>install.mysql.nonutf8.sql</filename>        
+	</files>
+    <languages folder="language">
+    </languages>
+    <config>
+         <fields name="params" addfieldpath="plugins/system/vmtrackingshipment/admin/elements/">
+            <fieldset name='basic'>
+                <field type="asset" path="plugins/system/vmtrackingshipment/admin/"/>                                
+
+                <field name="default_url" type="text" label="URL Default"
+                        description="URL Padrão para o cálculo do frete"
+                        default="http://www.websro.com.br/rastreamento-correios.php?P_COD_UNI="
+                        size="60"
+                />
+
+                <field type="spacer" label="OU"/>
+
+                <field name="shipment_url" type="shipment"                        
+                        label="Urls Personalizadas Frete"                        
+                />
+
+                <field type="spacer"/>
+                <field type="about" path="plugins/system/vmtrackingshipment/admin/" />
+            </fieldset>         
+        </fields>
+    </config>
+    <install>
+            <sql>
+                    <file driver="mysql" charset="utf8">install.mysql.utf8.sql</file>
+                    <file driver="mysql">install.mysql.nonutf8.sql</file>
+            </sql>
+    </install>
+</extension>
